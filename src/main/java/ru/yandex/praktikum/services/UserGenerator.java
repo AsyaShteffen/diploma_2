@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.utils;
+package ru.yandex.praktikum.services;
 
 import io.qameta.allure.Allure;
 import ru.yandex.praktikum.objects.User;
