@@ -1,5 +1,6 @@
 package ru.yandex.praktikum.user;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.Before;
 import io.qameta.allure.Epic;
@@ -53,6 +54,11 @@ public class CreateUserTest {
         assertThat("Code not equal", statusCode, equalTo(SC_FORBIDDEN));
         assertThat("Message not equal", message, equalTo(MESSAGE_FORBIDDEN_EMPTY_FIELD));
         assertThat("User is create correct", isCreate, equalTo(false));
+
+        String accessToken = response.extract().path("accessToken");
+        if(accessToken != null) {
+            userClient.deleteUser(StringUtils.substringAfter(accessToken, " "));
+        }
     }
 
     @Test
@@ -67,6 +73,11 @@ public class CreateUserTest {
         assertThat("Code not equal", statusCode, equalTo(SC_FORBIDDEN));
         assertThat("Message not equal", message, equalTo(MESSAGE_FORBIDDEN_EMPTY_FIELD));
         assertThat("User is create correct", isCreate, equalTo(false));
+
+        String accessToken = response.extract().path("accessToken");
+        if(accessToken != null) {
+            userClient.deleteUser(StringUtils.substringAfter(accessToken, " "));
+        }
     }
 
     @Test
@@ -81,6 +92,11 @@ public class CreateUserTest {
         assertThat("Code not equal", statusCode, equalTo(SC_FORBIDDEN));
         assertThat("Message not equal", message, equalTo(MESSAGE_FORBIDDEN_EMPTY_FIELD));
         assertThat("User is create correct", isCreate, equalTo(false));
+
+        String accessToken = response.extract().path("accessToken");
+        if(accessToken != null) {
+            userClient.deleteUser(StringUtils.substringAfter(accessToken, " "));
+        }
     }
 
     @Test
@@ -95,5 +111,10 @@ public class CreateUserTest {
         assertThat("Code not equal", statusCode, equalTo(SC_FORBIDDEN));
         assertThat("Message not equal", message, equalTo(MESSAGE_FORBIDDEN));
         assertThat("User is create correct", isCreate, equalTo(false));
+
+        String accessToken = response.extract().path("accessToken");
+        if(accessToken != null) {
+            userClient.deleteUser(StringUtils.substringAfter(accessToken, " "));
+        }
     }
 }
